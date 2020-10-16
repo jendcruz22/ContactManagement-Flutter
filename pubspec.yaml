@@ -32,6 +32,9 @@ dependencies:
   # Search bar
   flappy_search_bar: 1.4.1
 
+  # Database
+  sqflite: ^1.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
