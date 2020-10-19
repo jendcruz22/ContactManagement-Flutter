@@ -69,7 +69,7 @@ class AboutUs extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.amber,
                     letterSpacing: 2.0,
-                    fontSize: 28.0,
+                    fontSize: 25.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -81,7 +81,7 @@ class AboutUs extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.amber,
                     letterSpacing: 2.0,
-                    fontSize: 28.0,
+                    fontSize: 25.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -93,11 +93,11 @@ class AboutUs extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                  width: 15.0,
+                  width: 10.0,
                 ),
                 Icon(
                   Icons.account_circle,
-                  size: 18.0,
+                  size: 20.0,
                   color: Colors.grey[800],
                 ),
                 SizedBox(
@@ -112,11 +112,11 @@ class AboutUs extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 30.0,
+                  width: 10.0,
                 ),
                 Icon(
                   Icons.account_circle,
-                  size: 18.0,
+                  size: 20.0,
                   color: Colors.grey[800],
                 ),
                 SizedBox(
