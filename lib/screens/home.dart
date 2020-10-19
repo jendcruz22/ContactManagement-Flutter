@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      /// Page viewer
+      /// Body
       body: PageView(
         controller: _myPage,
         onPageChanged: (int) {},
