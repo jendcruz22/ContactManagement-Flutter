@@ -12,12 +12,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       /// Page viewer
       body: PageView(
         controller: _myPage,
-        onPageChanged: (int) {
-        },
+        onPageChanged: (int) {},
         children: <Widget>[
           /// Page 1
           Center(
@@ -33,9 +31,9 @@ class _HomeState extends State<Home> {
           ),
         ],
 
-        physics: NeverScrollableScrollPhysics(), // Comment this if you need to use Swipe.
+        physics:
+            NeverScrollableScrollPhysics(), // Comment this if you need to use Swipe.
       ),
-
 
       /// Floating action button
       floatingActionButton: FloatingActionButton(
@@ -45,24 +43,41 @@ class _HomeState extends State<Home> {
           color: Colors.blue,
           size: 30,
         ),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              backgroundColor: Colors.transparent,
+              context: context,
+              isScrollControlled: true,
+              enableDrag: true,
+              builder: (BuildContext bc) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                    color: Colors.white,
+                  ),
+                  margin: EdgeInsets.only(
+                    top: 150.0,
+                  ),
+                  // height: 500.0,
+                );
+              });
+        },
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
 
       /// Bottom navigation bar
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: 60
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 60),
           child: new Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-
               /// Contacts button
               IconButton(
                 icon: Icon(Icons.contacts),
