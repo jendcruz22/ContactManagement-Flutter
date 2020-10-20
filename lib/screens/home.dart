@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mcc_project/screens/about_us.dart';
-import 'package:mcc_project/screens/contacts.dart';
+
+import 'about_us.dart';
+import 'contacts.dart';
+import 'widgets/bottom_sheet.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,149 +46,7 @@ class _HomeState extends State<Home> {
               isScrollControlled: true,
               enableDrag: true,
               builder: (BuildContext bc) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                    color: Colors.white,
-                  ),
-                  margin: EdgeInsets.only(
-                    top: 150.0,
-                  ),
-                  height: 500.0,
-
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: new Wrap(
-                      children: <Widget>[
-
-                        Center(
-                          child: Text(
-                            "New Contacts",
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.grey[800],
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 40.0,),
-
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: TextFormField(
-                            cursorColor: Colors.amber,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                                borderSide: BorderSide(
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid,
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.account_circle_rounded,
-                                color: Colors.blue,
-                              ),
-                              hintText: 'Name',
-                              focusColor: Colors.blue,
-                              ),
-                            ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: TextFormField(
-                            cursorColor: Colors.amber,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                                borderSide: BorderSide(
-                                    color: Colors.blue,
-                                    style: BorderStyle.solid,
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.phone,
-                                color: Colors.blue,
-                              ),
-                              hintText:  'Number',
-                              focusColor: Colors.blue,
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: TextFormField(
-                            cursorColor: Colors.amber,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                                borderSide: BorderSide(
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid,
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.email,
-                                color: Colors.blue,
-                              ),
-                              hintText:  'Email ID',
-                              focusColor: Colors.blue,
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: TextFormField(
-                            cursorColor: Colors.amber,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                                borderSide: BorderSide(
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid,
-                                ),
-                              ),
-                              icon: Icon(
-                                Icons.add_location_sharp,
-                                color: Colors.blue,
-                              ),
-                              hintText:  'Address',
-                              focusColor: Colors.blue,
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 80.0,),
-
-                        Center(
-                            child: FlatButton(
-                              color: Colors.blue,
-                              textColor: Colors.white,
-                              disabledColor: Colors.grey,
-                              disabledTextColor: Colors.black,
-                              padding: EdgeInsets.all(8.0),
-                              splashColor: Colors.blueAccent,
-                              onPressed: () {
-                                /*...*/
-                              },
-                              child: Text(
-                                "Add to Contacts",
-                                style: TextStyle(fontSize: 20.0),
-                              ),
-                            )
-                        ),
-
-                      ],
-                    ),
-                  ),
-                );
+                return CustomBottomSheet();
               });
         },
       ),
