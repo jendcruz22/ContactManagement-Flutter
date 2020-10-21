@@ -102,7 +102,7 @@ class AboutUs extends StatelessWidget {
                               SizedBox(width: 5.0,),
 
                               Text(
-                                'PID: 172047',
+                                'PID: 172028',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15.0,
@@ -142,9 +142,12 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
 
+              SizedBox(height: 1.0,),
+
               Container(
                 child: new Stack(
                   children: <Widget>[
+
                     Card(
                       child: Container(
                         height: 200.0,
