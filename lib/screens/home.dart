@@ -15,6 +15,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       /// Body
       body: PageView(
         controller: _myPage,
@@ -33,6 +34,7 @@ class _HomeState extends State<Home> {
 
       /// Floating action button
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
         backgroundColor: Colors.amberAccent,
         child: const Icon(
           Icons.add,
