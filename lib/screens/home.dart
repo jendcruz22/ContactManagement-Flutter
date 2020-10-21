@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:mcc_project/models/contact.dart';
+import 'package:mcc_project/screens/add_edit_contact.dart';
 import 'about_us.dart';
 import 'contacts.dart';
-import 'widgets/bottom_sheet.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,18 +11,23 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   PageController _myPage = PageController(initialPage: 0);
+  final _homeScaffoldKey = GlobalKey<ScaffoldState>();
+  Color _color1 = Colors.amberAccent;
+  Color _color2 = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _homeScaffoldKey,
       resizeToAvoidBottomPadding: false,
+
       /// Body
       body: PageView(
         controller: _myPage,
         onPageChanged: (int) {},
         children: <Widget>[
           /// Page 1
-          Contacts(),
+          Contacts(scaffoldKey: _homeScaffoldKey,),
 
           /// Page 2
           AboutUs(),
@@ -42,14 +47,16 @@ class _HomeState extends State<Home> {
           size: 30,
         ),
         onPressed: () {
-          showModalBottomSheet(
-              backgroundColor: Colors.transparent,
-              context: context,
-              isScrollControlled: true,
-              enableDrag: true,
-              builder: (BuildContext bc) {
-                return CustomBottomSheet();
-              });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AddOrEditContact(
+                  title: 'Create Contact',
+                  contact: Contact('','',''),
+                  scaffoldKey: _homeScaffoldKey,
+                )
+            ),
+          );
         },
       ),
 
@@ -67,11 +74,13 @@ class _HomeState extends State<Home> {
               /// Contacts button
               IconButton(
                 icon: Icon(Icons.contacts),
-                color: Colors.amberAccent,
+                color: _color1,
                 iconSize: 30,
                 onPressed: () {
                   setState(() {
                     _myPage.jumpToPage(0);
+                    _color1 = Colors.amberAccent;
+                    _color2 = Colors.white;
                   });
                 },
               ),
@@ -79,11 +88,13 @@ class _HomeState extends State<Home> {
               /// Profile button
               IconButton(
                 icon: Icon(Icons.person),
-                color: Colors.amberAccent,
+                color: _color2,
                 iconSize: 30,
                 onPressed: () {
                   setState(() {
                     _myPage.jumpToPage(1);
+                    _color2 = Colors.amberAccent;
+                    _color1 = Colors.white;
                   });
                 },
               ),

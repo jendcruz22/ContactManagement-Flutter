@@ -7,6 +7,10 @@ import 'package:provider/provider.dart';
 import 'widgets/contact_card.dart';
 
 class Contacts extends StatefulWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey;
+
+  Contacts({this.scaffoldKey});
+
   @override
   _ContactsState createState() => _ContactsState();
 }
@@ -75,7 +79,11 @@ class _ContactsState extends State<Contacts> {
                     ),
                     child: Column(
                       children: [
-                        ContactCard(context: context, contact: _contactList[index]),
+                        ContactCard(
+                          context: context,
+                          contact: _contactList[index],
+                          scaffoldKey: widget.scaffoldKey,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 10.0,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:mcc_project/models/contact.dart';
-import 'package:mcc_project/utils/contact_manager.dart';
-import 'package:provider/provider.dart';
+import 'package:mcc_project/screens/widgets/popup.dart';
+import '../add_edit_contact.dart';
 import '../contact_details.dart';
 
 class ContactCard extends StatelessWidget {
@@ -10,10 +10,12 @@ class ContactCard extends StatelessWidget {
     Key key,
     @required this.context,
     @required this.contact,
+    @required this.scaffoldKey,
   }) : super(key: key);
 
   final BuildContext context;
   final Contact contact;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,16 @@ class ContactCard extends StatelessWidget {
             ),
           ),
           onTap: () {
-            // TODO edit functionality
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => AddOrEditContact(
+                  title: 'Edit Contact',
+                  contact: contact,
+                  scaffoldKey: scaffoldKey,
+                )
+              ),
+            );
           },
         ),
 
@@ -61,8 +72,15 @@ class ContactCard extends StatelessWidget {
             ),
           ),
           onTap: () {
-            Provider.of<ContactManager>(
-                context, listen: false).deleteContact(contact);
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return CustomAlertDialog(
+                  contact: contact,
+                  scaffoldKey: scaffoldKey,
+                );
+              },
+            );
           },
         ),
       ],

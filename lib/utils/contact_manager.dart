@@ -37,4 +37,14 @@ class ContactManager extends ChangeNotifier {
       updateContactsList();
     }
   }
+
+  Future<bool> editContact(Contact contact) async {
+    int result = await databaseHelper.updateContact(contact);
+    if (result != 0){
+      updateContactsList();
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

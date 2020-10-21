@@ -1,61 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:mcc_project/models/contact.dart';
+import 'package:mcc_project/utils/contact_manager.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+class CustomAlertDialog extends StatelessWidget {
+  final Contact contact;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
-class MyApp extends StatelessWidget {
+  CustomAlertDialog({this.contact, this.scaffoldKey});
+
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Flutter Basic Alert Demo';
-    return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(appTitle),
+    return AlertDialog(
+      title: Text("Confirm Delete Contact"),
+      content: Text("Are you sure you want to delete this contact?"),
+      actions: [
+        FlatButton(
+          child: Text("Yes"),
+            onPressed: () {
+              Provider.of<ContactManager>(
+                  context, listen: false).deleteContact(contact);
+              scaffoldKey.currentState.showSnackBar(SnackBar(
+                content: Text('Contact deleted successfully.'),
+              ));
+              Navigator.of(context).pop();
+
+            },
         ),
-        body: MyAlert(),
-      ),
+
+        FlatButton(
+          child: Text("No"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
-}
-
-class MyAlert extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: RaisedButton(
-        child: Text('Show alert'),
-        onPressed: () {
-          showAlertDialog(context);
-        },
-      ),
-    );
-  }
-}
-
-showAlertDialog(BuildContext context) {
-  // Create button
-  Widget okButton = FlatButton(
-    child: Text("OK"),
-    onPressed: () {
-      Navigator.of(context).pop();
-    },
-  );
-
-  // Create AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Simple Alert"),
-    content: Text("This is an alert message."),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
 }
