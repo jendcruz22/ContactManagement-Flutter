@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mcc_project/models/contact.dart';
 
 class ContactDetails extends StatelessWidget {
+  final Contact contact;
+
+  ContactDetails({this.contact});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +39,7 @@ class ContactDetails extends StatelessWidget {
                 ),
 
                 Text(
-                  'Daniel Lobo',
+                  contact.name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -74,7 +79,7 @@ class ContactDetails extends StatelessWidget {
                     ),
 
                     Text(
-                      '+91 98089998989',
+                      contact.phoneNumber,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.grey[750],
@@ -107,7 +112,7 @@ class ContactDetails extends StatelessWidget {
                     ),
 
                     Text(
-                      'email@email.com',
+                      contact.email,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.grey[750],
@@ -118,11 +123,9 @@ class ContactDetails extends StatelessWidget {
                 ),
               ),
             ),
-
           ],
         ),
       ),
-
     );
   }
 }

@@ -1,10 +1,32 @@
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:mcc_project/screens/contact_details.dart';
+import 'package:mcc_project/models/contact.dart';
+import 'package:mcc_project/utils/contact_manager.dart';
+import 'package:provider/provider.dart';
 
-class Contacts extends StatelessWidget {
+import 'widgets/contact_card.dart';
+
+class Contacts extends StatefulWidget {
+  @override
+  _ContactsState createState() => _ContactsState();
+}
+
+class _ContactsState extends State<Contacts> {
+
+  @override
+  void initState() {
+    super.initState();
+    /// Fetch contacts from the database
+    Provider.of<ContactManager>(
+        context, listen: false).updateContactsList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    /// List of contacts - Listens for changes in the database
+    List<Contact> _contactList = Provider.of<ContactManager>(
+        context, listen: true).contacts;
+
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -17,6 +39,7 @@ class Contacts extends StatelessWidget {
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w700,
+            color: Colors.amberAccent,
           ),
         ),
         centerTitle: true,
@@ -43,68 +66,32 @@ class Contacts extends StatelessWidget {
           /// List view
           Expanded(
             child: ListView.builder(
-                itemCount: 10,
+                itemCount: _contactList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8.0,
                       vertical: 4.0,
                     ),
-                    child: buildCard(context),
+                    child: Column(
+                      children: [
+                        ContactCard(context: context, contact: _contactList[index]),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0,
+                          ),
+                          child: Divider(
+                            height: 5.0,
+                            color: Colors.grey[800],
+                            thickness: 0.3,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 }),
           ),
         ],
-      ),
-    );
-  }
-
-  /// Card
-  Card buildCard(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: InkWell(
-        splashColor: Colors.blue.withOpacity(0.05),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ContactDetails()));
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(90),
-                  color: Colors.amberAccent,
-                ),
-                child: Icon(
-                  Icons.person,
-                  size: 35,
-                  color: Colors.grey[800],
-                ),
-                width: 70,
-                height: 70,
-              ),
-
-              SizedBox(
-                width: 20,
-              ),
-              Text(
-                'Name',
-                style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Spacer(),
-              Icon(
-                Icons.info_outline,
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

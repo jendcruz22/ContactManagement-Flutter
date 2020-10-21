@@ -34,7 +34,14 @@ dependencies:
 
   # Database
   sqflite: ^1.3.0
+
+  # Storage path
   path_provider: ^1.6.21
+
+  # Slidable card
+  flutter_slidable: ^0.5.7
+
+  provider: ^4.3.2
 
 dev_dependencies:
   flutter_test:
