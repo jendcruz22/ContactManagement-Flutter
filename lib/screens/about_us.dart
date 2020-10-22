@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/about_us_card.dart';
+
 class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,250 +22,33 @@ class AboutUs extends StatelessWidget {
         centerTitle: true,
       ),
 
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                child: new Stack(
-                  children: <Widget>[
-                    Card(
-                      child: Container(
-                        height: 200.0,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    FractionalTranslation(
-                      translation: Offset(0.0, -0.4),
-                      child: Align(
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/dan.jpg'),
-                          radius: 50.0,
-                        ),
-                        alignment: FractionalOffset(0.5, 0.0),
-                      ),
-                    ),
+      /// Body
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            /// Card for Daniel Lobo
+            AboutUsCard(
+              image: 'images/dan.jpg',
+              name: 'Daniel Lobo',
+              year: 'BE CMPN A - 07',
+              pid: 'PID: 172028',
+              email: 'danlobo1999@gmail.com',
+            ),
 
-                    Center(
-                      child:
-                      Column(
-                        children: [
-
-                          SizedBox(height: 70.0,),
-
-                          Text(
-                            'Daniel Lobo',
-                            style: TextStyle(
-                              color: Colors.amber,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 3.0
-                            ),
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 120.0,
-                                height: 40.0,),
-
-                              Icon(
-                                Icons.person,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'BE CMPN A - 07',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 130.0,
-                                ),
-
-                              Icon(
-                                Icons.work,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'PID: 172028',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 90.0,
-                                height: 40.0,),
-
-                              Icon(
-                                Icons.email,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'danlobo1999@gmail.com',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 1.0,),
-
-              Container(
-                child: new Stack(
-                  children: <Widget>[
-
-                    Card(
-                      child: Container(
-                        height: 200.0,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    FractionalTranslation(
-                      translation: Offset(0.0, -0.4),
-                      child: Align(
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/jen.jpg'),
-                          radius: 50.0,
-                        ),
-                        alignment: FractionalOffset(0.5, 0.0),
-                      ),
-                    ),
-
-                    Center(
-                      child:
-                      Column(
-                        children: [
-
-                          SizedBox(height: 70.0,),
-
-                          Text(
-                            'Jenny Dcruz',
-                            style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w900,
-                                letterSpacing: 3.0
-                            ),
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 120.0,
-                                height: 40.0,),
-
-                              Icon(
-                                Icons.person,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'BE CMPN A -16',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 130.0,
-                              ),
-
-                              Icon(
-                                Icons.work,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'PID: 172047',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 100.0,
-                                height: 40.0,),
-
-                              Icon(
-                                Icons.email,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-
-                              SizedBox(width: 5.0,),
-
-                              Text(
-                                'jendcruz23@gmail.com',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                        ],
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-            ],
-          ),
+            /// Card for Jenny Dcruz
+            AboutUsCard(
+              image: 'images/jen.jpg',
+              name: 'Jenny Dcruz',
+              year: 'BE CMPN A - 16',
+              pid: 'PID: 172047',
+              email: 'jendcruz23@gmail.com',
+            ),
+          ],
         ),
+      ),
     );
   }
 }
