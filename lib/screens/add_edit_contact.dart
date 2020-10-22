@@ -83,6 +83,7 @@ class _AddOrEditContactState extends State<AddOrEditContact> {
     );
   }
 
+  /// Input form
   Form buildForm() {
     return Form(
       key: _formKey,
@@ -211,8 +212,12 @@ class _AddOrEditContactState extends State<AddOrEditContact> {
               height: 30.0,
             ),
 
+            /// Add / Save button
             Center(
               child: FlatButton(
+                onPressed: () {
+                  _validateInputs();
+                },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -223,9 +228,6 @@ class _AddOrEditContactState extends State<AddOrEditContact> {
                   vertical: 20.0,
                 ),
                 splashColor: Colors.blueAccent,
-                onPressed: () {
-                  _validateInputs();
-                },
                 child: Text(
                   widget.title == 'Edit Contact'
                     ? "Save Contact"
@@ -251,7 +253,7 @@ class _AddOrEditContactState extends State<AddOrEditContact> {
       return null;
   }
 
-  /// phone number validator
+  /// Phone number validator
   String validateNumber(String phoneNumber) {
     if (phoneNumber == null || phoneNumber.isEmpty) {
       return 'Enter a phone number';
