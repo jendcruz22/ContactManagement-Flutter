@@ -64,6 +64,7 @@ class _HomeState extends State<Home> {
 
       /// Bottom navigation bar
       bottomNavigationBar: BottomAppBar(
+        color: Colors.blue,
         shape: CircularNotchedRectangle(),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 60),
@@ -101,7 +102,6 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        color: Colors.blue,
       ),
     );
   }

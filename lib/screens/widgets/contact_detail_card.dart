@@ -42,7 +42,7 @@ class ContactDetailCard extends StatelessWidget {
                 child: Text(
                   _text,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     color: Colors.grey[750],
                     fontWeight: FontWeight.w500,
                   ),
