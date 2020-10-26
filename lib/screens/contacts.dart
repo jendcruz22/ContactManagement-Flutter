@@ -56,17 +56,6 @@ class _ContactsState extends State<Contacts> {
         mainAxisSize: MainAxisSize.min,
         children: [
 
-          /// Search bar
-          SizedBox(
-            height: 90,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: SearchBar(
-                shrinkWrap: true,
-              ),
-            ),
-          ),
-
           /// List view
           Expanded(
             child: ListView.builder(
